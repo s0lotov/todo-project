@@ -1,0 +1,15 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex flex-row justify-content-between">
+    <h3 class="mt-3">Your Lists</h3>
+    <a class="btn btn-primary mt-3 mb-2" asp-action="Create" asp-controller="List">Create New</a>  
+</div>
+@foreach (var list in ViewBag.Lists)
+{
+    <div class="h-25 p-5 rounded-3 mt-2 mb-2 bg-secondary">
+    <a asp-action="Index" asp-controller="List" asp-route-listId="@list.Id" class="text-white"><h5>@list.Name</h5></a>
+    </div>
+}
